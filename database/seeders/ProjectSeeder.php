@@ -28,6 +28,7 @@ class ProjectSeeder extends Seeder
             @dump($i);
             $new_project = new Project();
             $new_project->name = $faker->word();
+            $new_project->type_id = $faker->numberBetween(1, 4);
             $new_project->authors = '';
             for ($j = 0; $j< 5; $j++) {
                 $new_project->authors .= " $faker->name()";
