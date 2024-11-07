@@ -8,11 +8,19 @@
       @csrf
       @method('PUT')
 
-      <div class="col-lg-6">
+      <div class="col-9 col-sm-8">
         <label for="input-name" class="form-label">Nome del progetto</label>
         <input type="text" class="form-control" id="input-name" name="name" value="{{ $editing_project->name }}">
       </div>
-      <div class="col-lg-6">
+      <div class="col-3 col-sm-4">
+        <label for="input-type" class="form-label">Tipo</label>
+        <select type="text" class="form-select" id="input-type" name="type">
+            @foreach ($types as $id => $type)
+                <option value="{{ $id }}">{{ $type->name }}</option>
+            @endforeach
+        </select>
+      </div>
+      <div class="col-12">
         <label for="input-authors" class="form-label">Autori</label>
         <input type="text" class="form-control" id="input-authors" name="authors" value="{{ $editing_project->authors }}">
       </div>
