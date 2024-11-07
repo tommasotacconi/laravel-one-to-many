@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Type extends Model
 {
     use HasFactory;
+
+    // Functions that states the relationship of Type with Project
+    // and create the connection between this entity data
+    public function projects () {
+        return $this->hasMany(Project::class);
+    }
 }

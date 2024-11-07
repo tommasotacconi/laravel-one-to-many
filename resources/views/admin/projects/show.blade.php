@@ -9,6 +9,9 @@
             <b>Authors</b>: {{ $project->authors }}
         </div>
         <div class="project-property">
+            <b>Type</b>: {{ $project->type->name }}
+        </div>
+        <div class="project-property">
             <b>Arguments</b>
             <p>{{ $project->arguments }}</p>
         </div>
