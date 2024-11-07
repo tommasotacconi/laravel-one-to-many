@@ -9,6 +9,7 @@
             <b>Authors</b>: {{ $project->authors }}
         </div>
         <div class="project-property">
+            {{-- Type added by means of relation functions in controller  --}}
             <b>Type</b>: {{ $project->type->name }}
         </div>
         <div class="project-property">
