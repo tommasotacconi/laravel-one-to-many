@@ -15,9 +15,12 @@
       <div class="col-3 col-sm-4">
         <label for="input-type" class="form-label">Tipo</label>
         <select type="text" class="form-select" id="input-type" name="type">
-            @foreach ($types as $id => $type)
-                <option value="{{ $id }}">{{ $type->name }}</option>
-            @endforeach
+					@foreach ($types as $id => $type)
+						<option value="{{ $id }}"
+						@if ($type->name === $editing_project->type->name) selected @endif>
+						{{ $type->name }}
+						</option>
+					@endforeach
         </select>
       </div>
       <div class="col-12">
