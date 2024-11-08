@@ -14,7 +14,6 @@ class Project extends Model
         'type_id',
         'authors',
         'arguments',
-        'programming_languages',
         'start_date',
         'end_date'
     ];
