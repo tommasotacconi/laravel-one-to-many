@@ -3,11 +3,20 @@
 @section('content')
 
 <div class="container-md">
-		<h1 class="ms-1">Edit {{ $editing_project->name }}</h1>
+		<h1 class="ms-1">Modifica {{ $editing_project->name }}</h1>
     <form action="{{ route('admin.projects.update', $editing_project->id ) }}" method="POST" class="col-md-8 mx-auto row gy-3">
       @csrf
       @method('PUT')
 
+			@if ($errors->any())
+			<div class="alert alert-danger">
+				<ul>
+					@foreach ($errors->all() as $error)
+						<li>{{ $error }}</li>
+					@endforeach
+				</ul>
+			</div>
+			@endif
       <div class="col-9 col-sm-8">
         <label for="input-name" class="form-label">Nome del progetto</label>
         <input type="text" class="form-control" id="input-name" name="name" value="{{ $editing_project->name }}">
@@ -16,7 +25,7 @@
         <label for="input-type" class="form-label">Tipo</label>
         <select type="text" class="form-select" id="input-type" name="type">
 					@foreach ($types as $id => $type)
-						<option value="{{ $id }}"
+						<option value="{{ $id + 1 }}"
 						@if ($type->name === $editing_project->type->name) selected @endif>
 						{{ $type->name }}
 						</option>
@@ -30,10 +39,6 @@
       <div class="col-12">
         <label for="input-arguments" class="form-label">Argomenti</label>
         <textarea type="text" class="form-control" id="input-arguments" name="arguments" rows="4">{{ $editing_project->arguments }}</textarea>
-      </div>
-      <div class="col-12">
-        <label for="input-programming_languages" class="form-label">Linguaggi di programmazione</label>
-        <input type="text" class="form-control" id="input-programming_languages" name="programming_languages" value="{{ $editing_project->programming_languages }}">
       </div>
       <div class="col-6 col-sm-4 col-md-4">
         <label for="input-start-date" class="form-label">Data d'inizio</label>
